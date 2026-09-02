@@ -8,3 +8,6 @@ MOCK_*
 
 __pycache__/
 *.pyc
+
+
+.venv/
