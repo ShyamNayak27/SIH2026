@@ -1,6 +1,14 @@
-data/raw/
+# Raw and intermediate data never go in git: too large, and IMD asks that its
+# gridded rainfall not be redistributed. docs/PROVENANCE.md carries the hashes.
+data/raw/*
+!data/raw/README.md
 data/interim/
-data/processed/*.csv
-!data/processed/MOCK_*.csv
+
+# Superseded synthetic stand-in from the first day. If these are still tracked:
+#   git rm --cached data/processed/MOCK_ner_landslide_v0.csv gis/MOCK_*.geojson
+MOCK_*
+
 __pycache__/
+*.pyc
 *.tif
+*.nc
