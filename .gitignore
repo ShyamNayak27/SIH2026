@@ -1,0 +1,6 @@
+data/raw/
+data/interim/
+data/processed/*.csv
+!data/processed/MOCK_*.csv
+__pycache__/
+*.tif
