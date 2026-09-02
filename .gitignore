@@ -1,7 +1,5 @@
-# Raw and intermediate data never go in git: too large, and IMD asks that its
-# gridded rainfall not be redistributed. docs/PROVENANCE.md carries the hashes.
-data/raw/*
-!data/raw/README.md
+# Large raw data files are tracked via Git LFS (see .gitattributes).
+# IMD rainfall and Copernicus DEM tiles are large — pull with `git lfs pull`.
 data/interim/
 
 # Superseded synthetic stand-in from the first day. If these are still tracked:
@@ -10,5 +8,3 @@ MOCK_*
 
 __pycache__/
 *.pyc
-*.tif
-*.nc
