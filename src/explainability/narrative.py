@@ -176,7 +176,7 @@ def generate_explanation(
     # ------------------------------------------
 
     summary = (
-        f"The model predicts a landslide probability of "
+        f"The spatial model estimates a landslide probability of "
         f"{probability * 100:.1f}%. "
     )
 

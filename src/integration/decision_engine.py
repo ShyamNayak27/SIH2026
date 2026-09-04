@@ -1,3 +1,18 @@
+import os
+import sys
+from src.risk_engine.fusion import fuse_risks
+from src.risk_engine.alerts import (classify_risk,get_alert_message,
+                                    apply_escalation,)
+from src.explainability.narrative import generate_explanation
+
+
+CURRENT_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
+
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(CURRENT_DIR, "../..")
+)
 """
 Decision Engine
 
@@ -11,22 +26,6 @@ Combines:
 into one final landslide risk response.
 """
 
-import os
-import sys
-
-
-CURRENT_DIR = os.path.dirname(
-    os.path.abspath(__file__)
-)
-
-PROJECT_ROOT = os.path.abspath(
-    os.path.join(CURRENT_DIR, "../..")
-)
-
-
-# ==========================================
-# IMPORT PROJECT MODULES
-# ==========================================
 
 sys.path.append(
     os.path.join(PROJECT_ROOT, "src", "risk_engine")
@@ -35,17 +34,6 @@ sys.path.append(
 sys.path.append(
     os.path.join(PROJECT_ROOT, "src", "explainability")
 )
-
-
-from fusion import fuse_risks
-
-from alerts import (
-    classify_risk,
-    get_alert_message,
-    apply_escalation
-)
-
-from narrative import generate_explanation
 
 
 # ==========================================
