@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061b2b" />
+    <title>TerraWatch | Landslide Risk Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="TerraWatch home"><span class="brand-mark">⌁</span><span>terra<span>watch</span></span></a>
+        <div class="topbar-right"><span class="live-dot"></span><span class="live-label">SYSTEM ONLINE</span><span class="updated" id="updatedAt"></span></div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">LANDSLIDE EARLY WARNING PLATFORM</p>
+          <h1>Risk intelligence, <em>before</em> the slope moves.</h1>
+          <p class="hero-copy">Monitor rainfall-triggered landslide risk across vulnerable locations with clear, actionable signals.</p>
+        </div>
+        <label class="location-picker"><span class="pin">⌖</span><span class="picker-content"><small>MONITORING LOCATION</small><select id="locationSelect" aria-label="Monitoring location"></select></span><span class="chevron">⌄</span></label>
+      </section>
+
+      <section class="dashboard-grid" aria-live="polite">
+        <article class="map-card card">
+          <div class="card-heading"><div><p class="eyebrow">SPATIAL OVERVIEW</p><h2 id="mapTitle">Munnar, Kerala</h2></div><button class="map-action" id="simulateBtn">Simulate rainfall</button></div>
+          <div class="map" role="img" aria-label="Stylized risk map with selected location">
+            <div class="map-grid"></div><div class="contour c1"></div><div class="contour c2"></div><div class="contour c3"></div><div class="contour c4"></div>
+            <div class="road r1"></div><div class="road r2"></div><div class="river"></div>
+            <span class="map-label label-a">Highland zone</span><span class="map-label label-b">Watershed</span>
+            <div class="risk-patch patch-a"></div><div class="risk-patch patch-b"></div><div class="risk-patch patch-c"></div>
+            <div class="location-dot"><span></span></div><div class="map-location" id="mapLocation">MUNNAR</div>
+            <div class="legend"><span><i class="legend-low"></i>Low</span><span><i class="legend-med"></i>Moderate</span><span><i class="legend-high"></i>High</span></div>
+          </div>
+          <p class="map-note"><span class="radar-dot"></span> Satellite layer & terrain susceptibility · Demo visualization</p>
+        </article>
+
+        <article class="risk-card card">
+          <p class="eyebrow">CURRENT RISK</p>
+          <div class="score-row"><div><span class="score" id="riskScore">72</span><span class="out-of">/ 100</span></div><span class="risk-badge" id="riskBadge">HIGH</span></div>
+          <p class="risk-summary" id="riskSummary">Elevated risk. Heavy recent rainfall is saturating already vulnerable slopes.</p>
+          <div class="meter"><span id="meterFill"></span></div>
+          <div class="risk-scale"><span>LOW</span><span>MODERATE</span><span>HIGH</span></div>
+          <div class="alert-box"><span>!</span><p><strong>Preparedness advised</strong><br />Monitor local advisories and avoid steep road corridors.</p></div>
+        </article>
+
+        <article class="metrics-card card">
+          <div class="card-heading"><div><p class="eyebrow">RAIN & CONDITIONS</p><h2>Trigger signals</h2></div><span class="weather-icon">☔</span></div>
+          <div class="metric-grid">
+            <div class="metric"><span>24H RAINFALL</span><strong id="rain24">84 <small>mm</small></strong><em id="rain24Trend">↑ 31% vs usual</em></div>
+            <div class="metric"><span>72H RAINFALL</span><strong id="rain72">146 <small>mm</small></strong><em>Accumulated</em></div>
+            <div class="metric"><span>SOIL MOISTURE</span><strong id="soil">78<small>%</small></strong><em>Near saturation</em></div>
+            <div class="metric"><span>RAIN FORECAST</span><strong id="forecast">42 <small>mm</small></strong><em>Next 24 hours</em></div>
+          </div>
+        </article>
+
+        <article class="trend-card card">
+          <div class="card-heading"><div><p class="eyebrow">RISK OUTLOOK</p><h2>Next 48 hours</h2></div><span class="trend-up" id="trendLabel">↗ RISING</span></div>
+          <div class="chart-wrap"><div class="chart-y"><span>100</span><span>50</span><span>0</span></div><svg viewBox="0 0 500 155" preserveAspectRatio="none" aria-label="Projected risk score trend"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#ff8b3d" stop-opacity=".36"/><stop offset="1" stop-color="#ff8b3d" stop-opacity="0"/></linearGradient></defs><path class="chart-grid" d="M0 28H500M0 78H500M0 128H500"/><path id="areaPath" fill="url(#area)" d="M0 105 C54 101 72 86 112 92 S170 75 210 72 S266 54 305 58 S365 34 405 45 S457 28 500 18 V155H0Z"/><path id="linePath" class="chart-line" d="M0 105 C54 101 72 86 112 92 S170 75 210 72 S266 54 305 58 S365 34 405 45 S457 28 500 18"/><circle id="chartPoint" cx="500" cy="18" r="5"/></svg><div class="chart-x"><span>NOW</span><span>12H</span><span>24H</span><span>36H</span><span>48H</span></div></div>
+          <p class="outlook" id="outlook">Risk may peak at <strong>81 / 100</strong> tomorrow morning if forecast rainfall arrives.</p>
+        </article>
+
+        <article class="drivers-card card">
+          <div class="card-heading"><div><p class="eyebrow">WHY THIS SCORE</p><h2>Primary risk drivers</h2></div><span class="model-tag">MOCK API</span></div>
+          <div class="drivers" id="drivers"></div>
+          <p class="api-note">Designed to accept the future risk-engine response without dashboard changes.</p>
+        </article>
+      </section>
+      <footer>TerraWatch prototype · SIH 2026 · Decision support only — follow official disaster-management advisories.</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
