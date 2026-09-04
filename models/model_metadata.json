@@ -1,0 +1,51 @@
+{
+    "model_name": "Random Forest",
+    "features": [
+        "elevation",
+        "slope_deg",
+        "aspect_sin",
+        "aspect_cos",
+        "plan_curv",
+        "prof_curv",
+        "tri",
+        "twi",
+        "relief_500m",
+        "rain_1d",
+        "rain_3d",
+        "rain_7d",
+        "rain_15d",
+        "rain_30d",
+        "api",
+        "rain_annual_mean"
+    ],
+    "validation_results": {
+        "Logistic Regression": {
+            "accuracy": 0.64,
+            "precision": 0.5116279069767442,
+            "recall": 0.7857142857142857,
+            "f1": 0.6197183098591549,
+            "roc_auc": 0.6816109422492401
+        },
+        "Random Forest": {
+            "accuracy": 0.7333333333333333,
+            "precision": 0.6739130434782609,
+            "recall": 0.5535714285714286,
+            "f1": 0.6078431372549019,
+            "roc_auc": 0.7469604863221885
+        },
+        "XGBoost": {
+            "accuracy": 0.6866666666666666,
+            "precision": 0.68,
+            "recall": 0.30357142857142855,
+            "f1": 0.41975308641975306,
+            "roc_auc": 0.74411094224924
+        }
+    },
+    "test_results": {
+        "accuracy": 0.6744186046511628,
+        "precision": 0.42424242424242425,
+        "recall": 0.27450980392156865,
+        "f1": 0.3333333333333333,
+        "roc_auc": 0.6971317452600875
+    }
+}

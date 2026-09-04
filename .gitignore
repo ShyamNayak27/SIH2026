@@ -5,6 +5,12 @@ data/interim/
 # Superseded synthetic stand-in from the first day. If these are still tracked:
 #   git rm --cached data/processed/MOCK_ner_landslide_v0.csv gis/MOCK_*.geojson
 MOCK_*
-
+node_modules/
+dist/
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.pyc
 __pycache__/
 *.pyc
