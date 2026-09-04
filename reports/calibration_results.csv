@@ -1,0 +1,4 @@
+Model,Calibration Method,Brier Score,Log Loss
+Random Forest,Uncalibrated,0.21414151342690071,0.620474836167576
+Random Forest,Sigmoid (Platt),0.2112292158250977,0.6108840609764281
+Random Forest,Isotonic,0.21827780147507603,0.632296361023757
